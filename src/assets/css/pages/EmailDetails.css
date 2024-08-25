@@ -1,0 +1,87 @@
+.email-details {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #fff;
+  width: 100%;
+  height: 85vh;
+}  
+
+
+h1 {
+  margin: 0.5rem;
+}
+
+h5 {
+  color: #888;
+}
+
+.email-details nav {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-top-right-radius: 10px;
+  background-color: #DEE8F2;
+  opacity: 0.8;
+}
+
+nav img {
+  width: 20px;
+  height: 20px;
+  margin: 0.5rem;
+}
+
+.email-details header {
+  display: flex;
+}
+
+
+.header-section-a > div > h4 {
+  font-weight: 700;
+}
+
+
+.header-section-a > div  > h5 {
+  color: #888;
+}
+
+.email-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-section-a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0.5rem;
+}
+
+.header-section-a > div {
+  display: flex;
+  align-items: center;
+}
+
+.header-section-b {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.email-details-main p {
+  margin: 1rem;
+}
+
+.email-details-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.email-details-main > h4 {
+  margin: 0.5rem;
+  font-size: 1.5rem;
+}

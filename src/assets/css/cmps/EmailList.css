@@ -1,0 +1,22 @@
+.email-list {
+  border-radius: 10px;
+  background-color: #CBD8E5;
+  overflow-y: auto;
+  width: 100%;
+  height: 85vh;
+}
+
+
+.email-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;  
+}
+
+.link-to:hover {
+  text-decoration: none;
+}
+
+
+
+

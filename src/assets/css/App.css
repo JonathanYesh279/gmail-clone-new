@@ -1,0 +1,29 @@
+body {
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#root {
+
+    height: 100%;
+}
+
+main {
+    display: grid;
+    grid-template-columns: minmax(250px , auto) 1fr; 
+    /* justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    position: relative; */
+}
+
+body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: url('/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
