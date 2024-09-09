@@ -13,7 +13,7 @@ export function EmailListNavbar({ sortBy, onSort, currentFolder,checkedEmails,  
           id='select-all'
           checked={checkedEmails.length === totalEmails}
           onChange={(ev) =>
-            onHandleCheckedEmail(ev.target.checked ? 'all' : 'none')
+          onHandleCheckedEmail(ev.target.checked ? 'all' : 'none')
           }
         />
         <select onChange={(ev) => onHandleCheckedEmail(ev.target.value)}>

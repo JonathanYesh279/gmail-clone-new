@@ -33,14 +33,9 @@
   opacity: 0.9;
 }
 
-/* Media query for mobile devices */
 @media screen and (max-width: 768px) {
   .email-index-container {
     width: 100%;
-  }
-
-  .email-content {
-    flex-direction: column;
   }
 
   .email-index {
@@ -49,29 +44,5 @@
     border-radius: 0;
   }
 
-  /* Adjust sidebar */
-  .email-content.sidebar-collapsed {
-    margin-left: 0;
-  }
 
-  /* You might want to hide the sidebar on mobile and add a toggle button */
-  .email-folder-list {
-    display: none;
-  }
-
-  /* Add a button to toggle sidebar visibility */
-  .sidebar-toggle {
-    display: block;
-    /* Style your toggle button */
-  }
-
-  /* Adjustments for EmailList component */
-  .email-list {
-    /* Adjust styles for mobile view */
-  }
-
-  /* Adjustments for individual email items */
-  .email-preview {
-    /* Adjust styles for mobile view */
-  }
 }

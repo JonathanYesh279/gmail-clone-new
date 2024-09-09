@@ -66,40 +66,26 @@ export function EmailIndex() {
     }
   }
 
-  async function removeEmails(emailId) {
+  async function removeEmail(emailId) {
     try {
-      await Promise.all(emailId.map(async (emailId) => {
-        const email = await emailService.getById(emailId)
-        if (filterBy.folder === 'trash' || email.removedAt) {
-          await emailService.remove(emailId)
-        } else {
-          email.removedAt = Date.now()
-          email.isStarred = false
-          await emailService.save(email)
-        }
-      })
-      )
-      setEmails(prevEmails => prevEmails.filter(email => !emailId.includes(email.id)))
+      const email = await emailService.getById(emailId)
 
-      if (emailId.length === 1) {
-        showSuccessMsg(filterBy.folder === 'trash' ? 'Email permanently deleted' : 'Email moved to trash')
+      if (filterBy.folder === 'trash') {
+        confirm('This action will permanently delete the email. Are you sure you want to proceed?')
+        await emailService.remove(emailId)
+        showSuccessMsg('Email has been deleted successfully')
       } else {
-        showSuccessMsg(filterBy.folder === 'trash' ? `${emailId.length} emails permanently deleted` : `${emailId.length} emails moved to trash`)
+        email.removedAt = Date.now()
+        email.isStarred = false
+        await emailService.save(email)
+        showSuccessMsg('Email has been removed successfully')
       }
-
-      if (emailId.length > 1) {
-        setCheckedEmails([])
-      }
+      setEmails(prevEmails => prevEmails.filter(email => email.id !== emailId))
     } catch (err) {
       console.error('Error removing email', err)
-      showErrorMsg('Failed to remove email')
+      showErrorMsg('Error removing email')
     }
   }
-
-  function handleRemoveEmails(emailIds) {
-    removeEmails(Array.isArray(emailIds) ? emailIds : [emailIds])
-  }
-
 
   async function toggleStar(emailId) {
     try {
@@ -175,13 +161,31 @@ export function EmailIndex() {
   }
 
   function handleCheckedEmail(emailId, isChecked) {
-    setCheckedEmails(prevCheckedEmails => {
-      const updatedCheckedEmails = isChecked ?
-        [...prevCheckedEmails, emailId]
-        :
-        prevCheckedEmails.filter(id => id !== emailId)
-    return updatedCheckedEmails
+    setCheckedEmails(prevCheckedeEmails => {
+      if (isChecked) {
+        return [...prevCheckedeEmails, emailId]
+      } else {
+        return prevCheckedeEmails.filter(id => id !== emailId)
+      }
     })
+  }
+
+  function handleRemoveCheckedEmails() {
+    if (filterBy.folder === 'trash') {
+      confirm('This action will permanently delete the emails. Are you sure you want to proceed?')
+      checkedEmails.forEach(emailId => removeEmail(emailId))
+      setCheckedEmails([])
+    } else {
+      checkedEmails.forEach(async emailId => {
+        const email = await emailService.getById(emailId)
+        email.removedAt = Date.now()
+        email.isStarred = false
+        await emailService.save(email)
+        setEmails(prevEmails => prevEmails.filter(email => email.id !== emailId))
+      })
+      setCheckedEmails([])
+      showSuccessMsg('Emails have been removed successfully')
+    }
   }
   
   function handleSelectedCheckbox(option) {
@@ -261,13 +265,13 @@ export function EmailIndex() {
               sortBy={sortBy}
               onSort={handleSort}
               emails={emails}
-              onRemoveEmail={(emailId) => handleRemoveEmails(emailId)}
-              onRemoveCheckedEmails={() => handleRemoveEmails(checkedEmails)}
-              onToggleStar={toggleStar}
-              onEmailRead={onEmailRead}
+              onRemoveEmail={removeEmail}
+              onRemoveCheckedEmails={handleRemoveCheckedEmails}
               checkedEmails={checkedEmails}
               onCheckedEmail={handleCheckedEmail}
               onHandleCheckedEmail={handleSelectedCheckbox}
+              onToggleStar={toggleStar}
+              onEmailRead={onEmailRead}
               currentFolder={folder}
             />
           )}

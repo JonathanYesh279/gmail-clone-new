@@ -17,7 +17,7 @@ export function EmailFolderList({
 }) {
   const navigate = useNavigate();
 
-function handleCompose(to = '', subject = '', body = '') {
+  function handleCompose(to = '', subject = '', body = '') {
   navigate(`/mail/${currentFolder}?compose=new&to=${encodeURIComponent(to)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`)
 }
 

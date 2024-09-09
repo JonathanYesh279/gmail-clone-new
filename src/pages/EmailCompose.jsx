@@ -11,11 +11,19 @@ import xIcon from '../assets/imgs/xIcon.png'
 import fullsizeIcon from '../assets/imgs/fullsizeIcon.png'
 import minimizeIcon from '../assets/imgs/minimizeIcon.png'
 
-const validationSchema = Yup.object({
+const validationSchema = Yup.object().shape({
   to: Yup.string().email('Invalid email address').required('Required'),
   subject: Yup.string().required('Required'),
   body: Yup.string().required('Required'),
+  includeLocation: Yup.boolean(),
 })
+
+const initialValues = {
+  to: '',
+  subject: '',
+  body: '',
+  includeLocation: false,
+}
 
 export function EmailCompose({ onCloseCompose, onEmailSend }) {
   const [size, setSize] = React.useState('medium')
@@ -26,21 +34,15 @@ export function EmailCompose({ onCloseCompose, onEmailSend }) {
   const [location, setLocation] = useState(null)
 
   const formik = useFormik({
-    initialValues: {
-      to: '',
-      subject: '',
-      body: '',
-      includeLocation: false,
-    },
-    validationSchema: validationSchema,
-    onSubmit: async (values) => {
+    initialValues,
+    validationSchema,
+    onSubmit: async (values, { resetForm }) => {
       let emailData = { ...values }
       if (values.includeLocation && location) {
         emailData.location = location
       }
-      console.log('Sending email with data:', emailData)
       await onEmailSend(emailData)
-      formik.resetForm()
+      resetForm()
       currentDraftRef.current = null
       setLocation(null)
     },
@@ -200,9 +202,9 @@ export function EmailCompose({ onCloseCompose, onEmailSend }) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.to && formik.errors.to ? (
+          {formik.touched.to && formik.errors.to && (
             <div className='error-message'>{formik.errors.to}</div>
-          ) : null}
+          )}
 
           <input
             type='text'
@@ -213,9 +215,9 @@ export function EmailCompose({ onCloseCompose, onEmailSend }) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.subject && formik.errors.subject ? (
+          {formik.touched.subject && formik.errors.subject && (
             <div className='error-message'>{formik.errors.subject}</div>
-          ) : null}
+          )}
 
           <textarea
             id='body'
@@ -224,9 +226,9 @@ export function EmailCompose({ onCloseCompose, onEmailSend }) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.body && formik.errors.body ? (
+          {formik.touched.body && formik.errors.body && (
             <div className='error-message'>{formik.errors.body}</div>
-          ) : null}
+          )}
           <div>
             <input 
               type='checkbox'

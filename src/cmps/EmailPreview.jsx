@@ -2,7 +2,7 @@ import trash from '../assets/imgs/trash.svg'
 import emptyStar from '../assets/imgs/emptyStar.png'
 import goldenStar from '../assets/imgs/goldenStar.png'
 import openEnvelope from '../assets/imgs/openEnvelope.png'
-import { FaUserCircle } from 'react-icons/fa'
+
 
 export function EmailPreview({ email, onRemoveEmail, onToggleStar, onEmailRead, onCheckedEmail, isChecked, currentFolder }) {
 
@@ -45,18 +45,13 @@ export function EmailPreview({ email, onRemoveEmail, onToggleStar, onEmailRead, 
     onEmailRead(email.id)
   }
   
-  function handleCheckboxChange(ev) {
-    ev.stopPropagation()
-    onCheckedEmail(email.id, ev.target.checked)
-  }
-
-function displaySenderRecipientName() {
+  function displaySenderRecipientName() {
   if (currentFolder === 'sent') {
     return `To: ${email.to}`
   } else {
     return email.from && email.from.name ? email.from.name : 'Unknown Sender'
   }
-}
+  }
   
 
   const paragraphStyle = { fontWeight }
