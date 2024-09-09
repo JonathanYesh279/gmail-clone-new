@@ -1,0 +1,28 @@
+.background-selector {
+  position: relative;
+}
+
+.background-images-container {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: none;
+  padding: 10px;
+  z-index: 100;
+}
+
+.background-selector > .btn-background {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.background-selector > .btn-background > img {
+  width: 50%;
+  height: 50%;
+}

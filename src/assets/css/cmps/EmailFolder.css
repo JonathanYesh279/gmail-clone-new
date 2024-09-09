@@ -1,0 +1,129 @@
+.nav-filters {
+  display: flex;
+  min-width: 15%;
+  flex-direction: column;
+  height: 70vh;
+  margin-left: 0.2rem;
+  margin-right: 0.5rem;
+  transition: width 0.3s ease;
+  width: 200px;
+}
+
+.nav-filters.collapsed {
+  width: 60px;
+  min-width: 60px;
+}
+
+.btn-compose {
+  margin-left: 10px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  width: 150px;
+}
+
+.btn-compose.icon-only {
+  width: 60px;
+  justify-content: center;
+  margin-left: 0;
+}
+
+.nav-filters > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  margin-left: 5px;
+}
+
+.btn { 
+ display: flex;
+ align-items: center; 
+ background-color: transparent;
+ color: #fff;
+ text-align: left;
+ font-size: 1rem;
+ border: none;
+ gap: 10px;
+ transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn.active {
+  background-color: rgba(241, 241, 241, 0.3);
+  padding: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.nav-filters.collapsed .btn.active {
+  padding: 10px 0;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn-compose {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  max-width: 150px;
+  background-color:#fff;
+  color: #777;
+  border: none;
+  border-radius: 15px;
+  margin: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.btn-compose img {
+  width: 25px;
+  height: 25px;
+}
+
+.nav-filters.collapsed .btn-compose span,
+.nav-filters.collapsed .btn span {
+  display: none;
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  gap: 5px;
+  width: 50%;
+}
+
+.dropdown-menu select {
+  border: none;
+  padding: 10px 20px;
+}
+
+.dropdown-menu select option {
+  background-color:transparent;
+}
+
+.btn img {
+  width: 15px;
+  height: 15px;
+}
+
+.btn.icon-only {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.btn.icon-only span {
+  display: none;
+}
+
+.btn.active.icon-only {
+  background-color: rgba(241, 241, 241, 0.3);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-filters {
+    display: none;
+  }
+}

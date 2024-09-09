@@ -1,0 +1,23 @@
+/*  Basics */
+@import "basics/base.css";
+@import "basics/helpers.css";
+@import "basics/layout.css";
+@import "basics/animations.css";
+
+@import "./App.css";
+
+/* Pages */
+@import "./pages/EmailIndex.css";
+@import "./pages/EmailDetails.css";
+@import "./pages/EmailCompose.css";
+
+/* Components */
+@import "./cmps/AppHeader.css";
+@import "./cmps/EmailList.css";
+@import "./cmps/EmailPreview.css";
+@import "./cmps/EmailFilter.css";
+@import "./cmps/EmailFolder.css";
+@import "./cmps/EmailListNavbar.css";
+@import "./cmps/UserMsg.css";
+@import "./cmps/BackgroundSelector.css";
+@import "./cmps/EmailSort.css";

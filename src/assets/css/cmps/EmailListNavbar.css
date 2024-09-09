@@ -1,0 +1,90 @@
+.email-list-navbar {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 10px;
+  height: 60px;
+  top: 0;
+  background-color: #D8E2ED;
+  gap: 10px;
+  z-index: 10;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container > select {
+  background:none;
+  border: none;
+  width: 20px;
+  height: 20px;
+}
+
+.email-list-navbar > button {
+  background: none;
+  border: none;
+}
+
+.email-list-navbar > button > img {
+  width: 13px;
+  height: 13px;
+}
+
+
+
+
+
+.email-list-navbar:hover input[type="checkbox"] {
+  border-color: #444;
+}
+
+.email-list-navbar input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 10px;
+  font: inherit;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #AEB6BD;
+  border-radius: 2px;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.email-list-navbar input[type="checkbox"]::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em white;
+  transform-origin: center;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.email-list-navbar input[type="checkbox"]:checked {
+  background-color: #1a73e8;
+  border-color: #1a73e8;
+}
+
+.email-list-navbar input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.email-list-navbar input[type="checkbox"]:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 1px;
+}
+
+.email-list-navbar input[type="checkbox"]:hover {
+  border-color: #1a73e8;
+}
+
+@media screen and (max-width: 768px) {
+  .email-list-navbar {
+    display: none;
+  }
+}

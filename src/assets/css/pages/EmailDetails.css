@@ -1,0 +1,121 @@
+.email-details {
+  width: 100%;
+  height: 85vh;
+} 
+
+.email-details-container {
+  display: flex;  
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+}
+
+.action-btn {
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 30px;
+  padding: 10px 30px;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background-color: #f1f1f1;
+}
+
+
+h1 {
+  margin: 0.5rem;
+}
+
+h5 {
+  color: #888;
+}
+
+.email-details nav {
+  background-color: #D8E2ED;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  opacity: 0.8;
+}
+
+nav img {
+  width: 20px;
+  height: 20px;
+  margin: 0.5rem;
+}
+
+.email-details header {
+  display: flex;
+}
+
+
+.header-section-a > div > h4 {
+  font-weight: 700;
+}
+
+
+.header-section-a > div  > h5 {
+  color: #888;
+}
+
+.email-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-section-a {
+  display: flex;
+  margin: 0.5rem;
+  gap: 5px;
+}
+
+.header-section-a > div {
+  display: flex;
+  align-items: center;
+}
+
+.header-section-b {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.email-details-main p {
+  margin: 1rem;
+}
+
+.email-details-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow-y: auto;
+  align-items: flex-start;
+}
+
+.email-details-main > h4 {
+  margin: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.back-button {
+  background: transparent;
+  border: none;
+}
+
+.email-details-map {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+}
+
+.email-details-map > div {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  margin: 0.5rem;
+  border-radius: 10px;
+  width: 70%;
+}
+

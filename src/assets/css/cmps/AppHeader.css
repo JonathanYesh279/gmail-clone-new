@@ -1,0 +1,40 @@
+.app-header {
+    display:grid;
+    grid-template-columns: 40px 250px 7fr 1fr 1fr;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+
+.app-header > .logo {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+.app-header > .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.app-header > .user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-right: 0.5rem;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .app-header {
+        display: none;
+    }
+
+    
+}

@@ -1,0 +1,77 @@
+.email-index-container {
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 10px;
+  width: 99%;
+  height: 100vh;
+  transition: width 0.3s ease;
+  width: calc(100% - 60px);
+}
+
+.email-index-container.sidebar-collapsed {
+  width: calc(100% - 60px);
+}
+
+.email-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  transition: margin-left 0.3s ease;
+}
+
+.email-content.sidebar-collapsed {
+  margin-left: 60px;
+}
+
+.email-index {
+  flex: 1;
+  position: relative;
+  width: 98%;
+  background-color: #e3e9f0;
+  border-radius: 10px;
+  margin: 0.5rem;
+  opacity: 0.9;
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .email-index-container {
+    width: 100%;
+  }
+
+  .email-content {
+    flex-direction: column;
+  }
+
+  .email-index {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  /* Adjust sidebar */
+  .email-content.sidebar-collapsed {
+    margin-left: 0;
+  }
+
+  /* You might want to hide the sidebar on mobile and add a toggle button */
+  .email-folder-list {
+    display: none;
+  }
+
+  /* Add a button to toggle sidebar visibility */
+  .sidebar-toggle {
+    display: block;
+    /* Style your toggle button */
+  }
+
+  /* Adjustments for EmailList component */
+  .email-list {
+    /* Adjust styles for mobile view */
+  }
+
+  /* Adjustments for individual email items */
+  .email-preview {
+    /* Adjust styles for mobile view */
+  }
+}
